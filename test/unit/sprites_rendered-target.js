@@ -68,6 +68,16 @@ test('comments are duplicated when duplicating target', t => {
     });
 });
 
+test('no comments are duplicated when duplicating target with no comments', t => {
+    const r = new Runtime();
+    const s = new Sprite(null, r);
+    const rt = new RenderedTarget(s, r);
+    return rt.duplicate().then(duplicate => {
+        t.equal(Object.keys(duplicate.comments).length, 0);
+        t.end();
+    });
+});
+
 test('direction', t => {
     const r = new Runtime();
     const s = new Sprite(null, r);
