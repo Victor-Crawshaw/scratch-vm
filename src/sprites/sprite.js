@@ -151,6 +151,7 @@ class Sprite {
             newSprite.blocks.createBlock(block);
         });
 
+        // Logic to handle new sprite retaining the comments from the current sprite
         Object.keys(this.comments).forEach(commentId => {
             const newComment = this.comments[commentId];
             newSprite.comments[newComment.id] = newComment;
